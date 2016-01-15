@@ -39,7 +39,7 @@ class pythondev {
     package {
         [ "dpkg-dev", "swig", "python2.7-dev", "libwebkitgtk-dev", "libjpeg-dev", "libtiff4-dev",
         "checkinstall", "ubuntu-restricted-extras", "freeglut3", "freeglut3-dev", "libgtk2.0-dev", "libsdl1.2-dev",
-        "libgstreamer-plugins-base0.10-dev", "libwxgtk2.8-dev", "libxslt1-dev " ]:
+        "libgstreamer-plugins-base0.10-dev", "libwxgtk2.8-dev", "libxml2-dev", "libxslt1-dev", "libssl-dev" ]:
         ensure => ["installed"],
         require => Exec['apt-update']
     }
@@ -61,6 +61,18 @@ class pythondev {
         command => "/usr/bin/sudo pip install w3lib",
         require => Package["python-dev", "python-pip"]
     }
+
+    exec {
+            "lxml":
+            command => "/usr/bin/sudo pip install lxml",
+            require => Package["python-dev", "python-pip"]
+    }
+
+    exec {
+                "cssselect":
+                command => "/usr/bin/sudo pip install cssselect",
+                require => Package["python-dev", "python-pip"]
+        }
 
     exec {
             "scrapy":
