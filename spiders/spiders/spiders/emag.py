@@ -12,7 +12,7 @@ class EmagSpider(Spider):
     name        = 'emag'
     filename    = 'emag.txt'
     start_urls  = [
-        #'http://www.emag.ro/all-departments?ref=hdr_mm_14'
+        'http://www.emag.ro/all-departments?ref=hdr_mm_14'
     ]
 
     # Main parsing 
