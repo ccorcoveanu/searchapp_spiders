@@ -2,10 +2,9 @@
 
 # Emag spider
 
-from scrapy.spiders import Spider
 import re
 import scrapy
-
+from scrapy.spiders import Spider
 from spiders.items import EmagItem
 
 class EmagSpider(Spider):
