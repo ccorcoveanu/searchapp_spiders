@@ -12,7 +12,7 @@ class EmagSpider(Spider):
     name        = 'emag'
     filename    = 'emag.txt'
     start_urls  = [
-        'http://www.emag.ro/all-departments?ref=hdr_mm_14'
+        #'http://www.emag.ro/all-departments?ref=hdr_mm_14'
     ]
 
     # Main parsing 
@@ -56,13 +56,14 @@ class EmagSpider(Spider):
             status = 1
 
         # Build the item that will be saved in the json document
-        item = EmagItem()
-        item['title'] = response.xpath('//h1[@class="product-title"]/text()').extract_first().strip()
-        item['brand'] = response.xpath('//div[@class="disclaimer-section"]/p/a/text()').extract_first()
-        item['price'] = str(value_int) + "." + str(value_decimal)
-        item['seller'] = seller
-        item['status'] = status
-        item['categories'] = categories[1].strip()
-        item['description'] = "aaaaaaa"
+        item                    = EmagItem()
+        item['seller']          = seller
+        item['status']          = status
+        item['url']             = response.url
+        item['categories']      = categories[1].strip()
+        item['price']           = str(value_int) + "." + str(value_decimal)
+        item['title']           = response.xpath('//h1[@class="product-title"]/text()').extract_first().strip()
+        item['brand']           = response.xpath('//div[@class="disclaimer-section"]/p/a/text()').extract_first()
+        item['image']           = response.xpath('//div[@id="product-pictures-content"]//img[1]/@src').extract_first()
         yield item
         #item['description'] = response.xpath('//div[@class="description-section"]/div[@class="description-content"]').extract_first()

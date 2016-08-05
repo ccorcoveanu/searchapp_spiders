@@ -12,9 +12,9 @@ class EmagItem(Item):
     # define the fields for your item here like:
     title       = Field()
     image		= Field()
+    url			= Field()
     brand       = Field()
     price       = Field()
     categories  = Field()
     seller      = Field()
     status      = Field()
-    description = Field()
