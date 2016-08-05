@@ -10,6 +10,7 @@ RUN apk -U add \
         python-dev \
         py-imaging \
         py-pip \
+        curl \
     && rm -rf /var/cache/apk/* \
     && pip install Scrapy
 
