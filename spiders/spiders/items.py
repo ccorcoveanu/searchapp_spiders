@@ -11,6 +11,7 @@ from scrapy.item import Item, Field
 class EmagItem(Item):
     # define the fields for your item here like:
     title       = Field()
+    image		= Field()
     brand       = Field()
     price       = Field()
     categories  = Field()
