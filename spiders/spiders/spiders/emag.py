@@ -14,6 +14,7 @@ class EmagSpider(Spider):
     start_urls  = [
         'http://www.emag.ro/all-departments?ref=hdr_mm_14'
     ]
+    special_header = {'X-HTTP-FORWARDED-FOR': '127.0.0.1'}
 
     # Main parsing 
     def parse(self, response):
